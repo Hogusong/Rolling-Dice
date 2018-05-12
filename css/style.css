@@ -29,7 +29,7 @@ footer {
 }
 
 footer span {
-  color: orangered;
+  color: blue;
   font-weight: bold;
 }
 
@@ -97,6 +97,11 @@ header hr {
   background: none;
 }
 
+.button:hover {
+  color: var(--primary);
+  font-weight: bold;
+}
+
 .button i{  margin-right: 16px;  color: var(--primary); }
 
 .btn-new {  top: 210px; }
@@ -115,6 +120,7 @@ header hr {
 }
 
 .message {
+  display: none;
   width: 300px;
   font-size: 16px;
   top: 470px;
@@ -151,26 +157,36 @@ header hr {
   padding: 0;
   outline: 0;
   width: 600px;
+}
+
+.modal-container {
+  margin: 0;
+  margin-top: 260px;
   border: 2px black solid;
 }
 
-.modal-content p {
+.modal-container p {
   margin-top: 25px;
   font-size: 20px;
 }
 
-.modal-content input {
+.modal-container input {
   margin: 25px;
   font-size: 20px;
 }
 
-.modal-content div {
+.modal-container div {
   margin-left: -30px;
 }
-.modal-content button {
+.modal-container button {
   margin-bottom: 25px;
   margin-left: 30px;
   padding: 5px 20px;
+}
+
+.modal-container button:hover {
+  background: var(--primary);
+  color: white;
 }
 
 @media(max-width: 800px) {
