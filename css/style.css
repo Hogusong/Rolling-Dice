@@ -1,3 +1,24 @@
+/* CSS variables */
+:root {
+  --primary: rgb(219, 58, 9);
+  --active: rgb(250, 250, 99);
+  --default: lightgray;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('../img/back.jpg') center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  height: 100%;
+}
+
 footer {
   background: var(--dark);
   color: var(--light);
@@ -10,4 +31,183 @@ footer {
 footer span {
   color: orangered;
   font-weight: bold;
+}
+
+header h1 {
+  padding: 36px 0 12px 0;
+  font-size: 46px;
+  color: var(--primary);
+}
+
+header hr {
+  color: var(--primary);
+  width: 300px;
+  margin: auto;
+  border: 2px var(--primary) solid;
+}
+
+.showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px auto;
+  width: 800px;
+  height: 480px;
+  color: var(--default);
+  background: white;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.player .player-name {  margin: 80px auto;  font-size: 40px;  }
+
+.player .score {  margin-top: -10px;  font-size: 70px;  }
+
+.current {
+  margin: 70px auto;
+  width: 105px;
+  height: 85px;
+  background: var(--default);
+  color: white;
+}
+
+.current p {  font-size: 20px;  padding: 10px;  }
+
+#current-score-1, #current-score-2 {
+  font-size: 28px;
+  padding: 0;
+}
+
+.active {  background: var(--active); }
+.active .player-name {  color: black;  }
+.active .score {  color: var(--primary);  }
+.active .current {  background: var(--primary); }
+.active .player-name::after {
+  content: "\2713";
+  font-size: 36px;
+  color: var(--primary);
+  margin-left: 10px;
+}
+
+.button, #target-score, .buttons img, .message {
+  position: absolute;
+  font-size: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background: none;
+}
+
+.button i{  margin-right: 16px;  color: var(--primary); }
+
+.btn-new {  top: 210px; }
+
+#target-score {
+  top: 250px;
+  font-size: 18px;
+  color: blue;
+}
+
+.buttons img {
+  width: 80px;
+  height: auto;
+  border: 1px var(--default) solid;
+  top: 350px;
+}
+
+.message {
+  width: 300px;
+  font-size: 16px;
+  top: 470px;
+  color: blue;
+}
+
+.btn-roll {  top: 505px;  }
+
+.btn-hold {  top: 560px;  }
+
+.rules {  margin-top: -24px;  }
+
+.rules p, .help p {  margin-top: 6px; }
+
+.help {  margin-top: 12px;  }
+
+.modal{
+  z-index:3;
+  display:none;
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:auto;
+  background-color:rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  margin: auto;
+  margin-top: 100px;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 600px;
+  border: 2px black solid;
+}
+
+.modal-content p {
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+.modal-content input {
+  margin: 25px;
+  font-size: 20px;
+}
+
+.modal-content div {
+  margin-left: -30px;
+}
+.modal-content button {
+  margin-bottom: 25px;
+  margin-left: 30px;
+  padding: 5px 20px;
+}
+
+@media(max-width: 800px) {
+  .showcase {    width: auto;  }
+}
+
+@media(max-width: 530px) {
+  .button, i, #target-score {
+    font-size: 14px;
+  }
+  
+  .button i {
+    margin-right: 6px;
+  }
+
+  .buttons img {
+    width: 70px;
+  }
+    
+  #target-score {    top: 240px;  }
+
+  .btn-hold {  top: 540px;  }
+
+  .active .player-name::after {
+    font-size: 24px;
+  }
+  
+  .player .player-name {
+    font-size: 36px;
+  }
+  
+  .player .score {
+    font-size: 60px;
+  }
+
+  .message {
+    font-size: 14px;
+    top: 460px;
+  }  
 }
