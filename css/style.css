@@ -28,10 +28,7 @@ footer {
   text-align: center;
 }
 
-footer span {
-  color: blue;
-  font-weight: bold;
-}
+footer span {  color: blue;  font-weight: bold; }
 
 header h1 {
   padding: 36px 0 12px 0;
@@ -102,8 +99,8 @@ header hr {
   font-weight: bold;
 }
 
+.button:focus {  outline: none  }
 .button i{  margin-right: 16px;  color: var(--primary); }
-
 .btn-new {  top: 210px; }
 
 #target-score {
@@ -128,13 +125,9 @@ header hr {
 }
 
 .btn-roll {  top: 505px;  }
-
 .btn-hold {  top: 560px;  }
-
 .rules {  margin-top: -24px;  }
-
 .rules p, .help p {  margin-top: 6px; }
-
 .help {  margin-top: 12px;  }
 
 .modal{
@@ -149,19 +142,19 @@ header hr {
   background-color:rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.modal-container {
   margin: auto;
-  margin-top: 100px;
+  margin-top: 300px;
   background-color: #fff;
   position: relative;
   padding: 0;
   outline: 0;
-  width: 600px;
+  width: 400px;
 }
 
 .modal-container {
-  margin: 0;
-  margin-top: 260px;
+  /* margin: 0; */
+  /* margin-top: 260px; */
   border: 2px black solid;
 }
 
@@ -175,9 +168,8 @@ header hr {
   font-size: 20px;
 }
 
-.modal-container div {
-  margin-left: -30px;
-}
+.modal-container div {  margin-left: -30px; }
+
 .modal-container button {
   margin-bottom: 25px;
   margin-left: 30px;
@@ -188,6 +180,9 @@ header hr {
   background: var(--primary);
   color: white;
 }
+
+.modal-container input:focus {  outline: none }
+.modal-container button:focus {  outline: none  }
 
 @media(max-width: 800px) {
   .showcase {    width: auto;  }

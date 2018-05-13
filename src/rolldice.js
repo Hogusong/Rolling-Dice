@@ -25,7 +25,7 @@ GAME RULES:
 -   The player can choose 'New Game' to restart a New Game.
 */
 
-var scores, roundScore, preDice, activePlayer, currentScore, gameOver;
+var scores, currentScore, preDiceNo, activePlayer, gameOver;
 var winScore = 30;
 var lastWinScore = winScore;
 var DOM = {
@@ -38,10 +38,9 @@ init();
 
 function init() {
   scores = [null, 0, 0];
-  roundScore = 0;
-  preDice = 0;
-  activePlayer = 1;
   currentScore = 0;
+  preDiceNo = 0;
+  activePlayer = 1;
   gameOver = false;
 
   DOM.dice.style.display = 'none';
@@ -59,17 +58,64 @@ function init() {
   document.querySelector('.player-2').classList.remove('active');
 }
 
+function roll_dice() {
+  const rollingCount = Math.floor(Math.random()*10);
+  let diceNo;
+  for (let i = 0; i <= rollingCount; i++) {
+    diceNo = Math.floor(Math.random()*6) + 1;
+  }
+  DOM.dice.src = '../img/dice-' + diceNo + '.png';
+  DOM.dice.style.display = 'block';
+
+  if (diceNo === 1) {
+    changePlayer()
+  } else if (diceNo === preDiceNo) {
+    if (diceNo === 6){
+      gameIsOver('Loser');
+    } else {
+      scores[activePlayer] = 0;
+      changePlayer();
+    }
+  } else {
+    currentScore += diceNo;
+    document.getElementById('current-score-'+activePlayer).innerHTML = currentScore;
+    if ((scores[activePlayer] + currentScore) >= winScore ) {
+      gameIsOver('Winner');
+    } else {
+      preDiceNo = diceNo;
+    }
+  }
+}
+
+function changePlayer() {
+  currentScore = 0;
+  preDiceNo = 0;
+  document.querySelector('.player-'+activePlayer).classList.toggle('active');
+  document.getElementById('total-score-'+activePlayer).innerHTML = scores[activePlayer];
+  activePlayer = (activePlayer === 1) ? 2 : 1 ;
+  document.querySelector('.player-'+activePlayer).classList.toggle('active');
+  document.getElementById('current-score-'+activePlayer).innerHTML = '0' ;
+}
+
+function gameIsOver(result) {
+  gameOver = true;
+  document.getElementById('player-'+activePlayer).textContent = result;
+}
+
 document.querySelector('.btn-roll').addEventListener('click', () => {
   if (gameOver) {
     DOM.message.style.display = 'block'
-    return
+  } else {
+    roll_dice();
   }
 })
 
 document.querySelector('.btn-hold').addEventListener('click', () => {
   if (gameOver) {
     DOM.message.style.display = 'block'
-    return
+  } else {
+    scores[activePlayer] += currentScore;
+    changePlayer();
   }
 })
 
@@ -86,5 +132,8 @@ document.getElementById('submit').addEventListener('click', () => {
   const inputValue = document.getElementsByTagName('input')[0].value;
   winScore = (parseInt(inputValue) > 20) ? parseInt(inputValue) : lastWinScore ;
   lastWinScore = winScore;
-  init();
+  document.getElementById('target-score').innerHTML = winScore;
+  if (gameOver) {
+    init();
+  }
 })
