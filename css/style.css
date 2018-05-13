@@ -150,11 +150,6 @@ header hr {
   padding: 0;
   outline: 0;
   width: 400px;
-}
-
-.modal-container {
-  /* margin: 0; */
-  /* margin-top: 260px; */
   border: 2px black solid;
 }
 
@@ -189,36 +184,13 @@ header hr {
 }
 
 @media(max-width: 530px) {
-  .button, i, #target-score {
-    font-size: 14px;
-  }
-  
-  .button i {
-    margin-right: 6px;
-  }
-
-  .buttons img {
-    width: 70px;
-  }
-    
+  .button, i, #target-score {    font-size: 14px;  }
+  .button i {    margin-right: 6px;  }
+  .buttons img {    width: 70px;  }
   #target-score {    top: 240px;  }
-
   .btn-hold {  top: 540px;  }
-
-  .active .player-name::after {
-    font-size: 24px;
-  }
-  
-  .player .player-name {
-    font-size: 36px;
-  }
-  
-  .player .score {
-    font-size: 60px;
-  }
-
-  .message {
-    font-size: 14px;
-    top: 460px;
-  }  
+  .active .player-name::after {    font-size: 24px;  }
+  .player .player-name {    font-size: 36px;  }
+  .player .score {    font-size: 60px;  }
+  .message {    font-size: 14px;    top: 460px;  }  
 }
