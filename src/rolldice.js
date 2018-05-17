@@ -64,7 +64,7 @@ function roll_dice() {
   for (let i = 0; i <= rollingCount; i++) {
     diceNo = Math.floor(Math.random()*6) + 1;
   }
-  DOM.dice.src = '../img/dice-' + diceNo + '.png';
+  DOM.dice.src = '../img/dice-' + diceNo + '.PNG';
   DOM.dice.alt = 'dice-' + diceNo;
   DOM.dice.style.display = 'block';
 
