@@ -65,6 +65,7 @@ function roll_dice() {
     diceNo = Math.floor(Math.random()*6) + 1;
   }
   DOM.dice.src = '../img/dice-' + diceNo + '.png';
+  DOM.dice.alt = 'dice-' + diceNo;
   DOM.dice.style.display = 'block';
 
   if (diceNo === 1) {
